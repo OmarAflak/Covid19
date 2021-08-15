@@ -45,15 +45,13 @@ def propagate(grid: Grid):
 
     for i in range(height):
         for j in range(width):
-            if all(not host.has(Covid19.name) for host in grid[i][j]):
-                continue
-
-            for host in grid[i][j]:
-                host.expose(get_virus())
-            
-            for hosts in neighbors(grid, i, j):
-                for host in hosts:
+            if any(host.has(Covid19.name) for host in grid[i][j]):
+                for host in grid[i][j]:
                     host.expose(get_virus())
+                
+                for hosts in neighbors(grid, i, j):
+                    for host in hosts:
+                        host.expose(get_virus())
 
 def count_infected(grid: Grid):
     return sum(
