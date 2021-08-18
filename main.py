@@ -62,9 +62,15 @@ def count_infected(grid: Grid):
         if host.has(Covid19.name)
     )
 
+# Paris population density
+# 20,745 p / 1 km2
+# 20,745 p / 1,000,000 m2
+# 0.020745 p / 1 m2
+
 def main():
-    world_size = 30
-    population = 300
+    world_size = 100     # unit
+    density = 0.020745   # people / unit^2
+    population = int(density * world_size * world_size)
     initial_infection = 0.2
     probability_of_reinfection = 0.05
     epochs = 150
@@ -79,15 +85,12 @@ def main():
         grid[i][j].append(host)
 
     infected = []
-    not_infected = []
     for _ in range(epochs):
         grid = move(grid)
         propagate(grid)
         infected.append(count_infected(grid) / population)
-        not_infected.append(1 - infected[-1])
 
     plt.plot(infected, label="infected")
-    plt.plot(not_infected, label="not infected")
     plt.legend()
     plt.show()
 
