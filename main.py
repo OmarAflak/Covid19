@@ -72,7 +72,7 @@ def main():
     density = 0.020745   # people / unit^2
     population = int(density * world_size * world_size)
     initial_infection = 0.2
-    probability_of_reinfection = 0.05
+    probability_of_reinfection = 0.2
     epochs = 150
 
     grid = get_empty_grid(world_size, world_size)
