@@ -16,5 +16,5 @@ class Virus(Living):
 class Covid19(Virus):
     name = "Covid19"
 
-    def __init__(self):
-        super().__init__(0.5, (15, 30))
+    def __init__(self, infection_probability: float = 0.5, lifetime: tuple[int, int] = (15, 30)):
+        super().__init__(infection_probability, lifetime)
