@@ -1,11 +1,10 @@
 import random
-from typing import Tuple
 from living import Living
 
 class Virus(Living):
     name = "unnamed"
 
-    def __init__(self, infection_probability: float, lifetime: Tuple[int, int]):
+    def __init__(self, infection_probability: float, lifetime: tuple[int, int]):
         super().__init__(lifetime)
         self.infection_probability = infection_probability
     

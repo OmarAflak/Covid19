@@ -1,12 +1,11 @@
 import random
-from typing import Dict
 from collections import defaultdict
 from abc import ABC, abstractmethod
 from virus import Virus
 
 class ImmuneSystem(ABC):
     def __init__(self):
-        self.memory: Dict[str, int] = defaultdict(int)
+        self.memory: defaultdict[str, int] = defaultdict(int)
     
     def add_to_memory(self, virus: Virus):
         self.memory[virus.name] +=1

@@ -1,9 +1,8 @@
 import random
 from abc import ABC
-from typing import Tuple
 
 class Living(ABC):
-    def __init__(self, lifetime: Tuple[int, int]):
+    def __init__(self, lifetime: tuple[int, int]):
         self.time: int = 0
         self.alive: bool = True
         self.lifetime = random.randint(*lifetime)

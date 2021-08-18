@@ -1,16 +1,16 @@
 import random
 import matplotlib.pyplot as plt
-from typing import List, Iterator, TypeVar
+from typing import Iterator, TypeVar
 
 from host import Host
 from virus import Covid19
 
 T = TypeVar('T')
-Grid = List[List[List[Host]]]
+Grid = list[list[list[Host]]]
 
 steps = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
-def neighbors(grid: List[List[T]], i: int, j: int) -> Iterator[T]:
+def neighbors(grid: list[list[T]], i: int, j: int) -> Iterator[T]:
     height, width = len(grid), len(grid[0])
     for di, dj in steps:
         new_i, new_j = i + di, j + dj

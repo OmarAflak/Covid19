@@ -1,11 +1,10 @@
-from typing import Dict
 from virus import Virus
 from system import ImmuneSystem, ImmuneWithProbabilityAfterExposure, ImmuneNot
 
 class Host:
     def __init__(self, immune_system: ImmuneSystem):
         self.immune_system = immune_system
-        self.viruses: Dict[str, Virus] = dict()
+        self.viruses: dict[str, Virus] = dict()
 
     @property
     def infected(self) -> bool:
